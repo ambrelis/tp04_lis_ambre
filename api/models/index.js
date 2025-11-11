@@ -19,5 +19,9 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.pollution = require("./pollution.model.js")(sequelize, Sequelize);
+db.users = require("./users.model.js")(sequelize, Sequelize);
+
+db.users.hasMany(db.pollution, { foreignKey: "user_id", onDelete: "CASCADE" });
+db.pollution.belongsTo(db.users, { foreignKey: "user_id" });
 
 module.exports = db;

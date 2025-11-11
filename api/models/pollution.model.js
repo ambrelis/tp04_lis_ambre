@@ -31,8 +31,18 @@ module.exports = (sequelize, Sequelize) => {
     },
     photo_url: {
       type: Sequelize.STRING
+    },
+    user_id: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      references: {
+        model: "users", // nom de la table
+        key: "id"
+      },
+      onDelete: "CASCADE"
     }
   });
+  
 
   return Pollution;
 }; 
