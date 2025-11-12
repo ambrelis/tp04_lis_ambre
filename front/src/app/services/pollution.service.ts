@@ -21,7 +21,7 @@ export interface Pollution {
   providedIn: 'root'
 })
 export class PollutionService {
-  private apiUrl = environment.apiUrl;
+  private apiUrl =  `${environment.apiUrl}/api/pollution`;
 
   private pollutionsSubject = new BehaviorSubject<Pollution[]>([]);
   pollutions$ = this.pollutionsSubject.asObservable();
